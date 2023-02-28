@@ -36,7 +36,7 @@ func main() {
 
 	app.Post("/v1/user", func(c *quick.Ctx) {
 		var my My
-		err := c.BodyParse(&my)
+		err := c.BodyParser(&my)
 		if err != nil {
 			fmt.Println("error Body:", err)
 			c.Status(http.StatusBadRequest)
@@ -136,7 +136,7 @@ func main() {
 
 // 	var my MyStruct
 
-// 	err := c.BodyParse(&my)
+// 	err := c.BodyParser(&my)
 // 	if err != nil {
 // 		fmt.Println("error Body:", err)
 // 		c.Response.WriteHeader(http.StatusBadRequest)

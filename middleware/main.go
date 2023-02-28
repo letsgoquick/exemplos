@@ -30,8 +30,8 @@ func main() {
 		}
 
 		var my My
-		err := c.BodyParse(&my)
-		fmt.Println("byte:", c.BodyParse())
+		err := c.BodyParser(&my)
+		fmt.Println("byte:", c.BodyParser())
 
 		if err != nil {
 			c.Status(400).SendString(err.Error())

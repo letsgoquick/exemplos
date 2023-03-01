@@ -41,7 +41,7 @@ func QuickHandler(c *quick.Ctx) {
 Neste exemplo, c é uma instância do objeto `quick.Ctx`, que fornece acesso a informações sobre a solicitação HTTP recebida. O manipulador define um tipo my que será serializado como uma resposta JSON, e usa o método c.Param para obter os valores dos parâmetros de rota `param1` e `param2`.
 Respostas
 
-A biblioteca [https:/github.com/gojeffotoni/quick](https:/github.com/gojeffotoni/quick) inclui vários exemplos de como criar respostas em seu aplicativo Quick. O exemplo abaixo cria uma resposta HTML simples:
+A biblioteca [https://github.com/gojeffotoni/quick](https://github.com/gojeffotoni/quick) inclui vários exemplos de como criar respostas em seu aplicativo Quick. O exemplo abaixo cria uma resposta HTML simples:
 
 ```go
 
@@ -55,7 +55,7 @@ Neste exemplo, o manipulador de solicitação chama o método `c.Status` para de
 
 ### Middleware
 
-A biblioteca [https:/github.com/gojeffotoni/quick](https:/github.com/gojeffotoni/quick) inclui vários exemplos de como usar middleware em seu aplicativo Quick. O exemplo abaixo usa o middleware Logger para registrar informações sobre cada solicitação recebida:
+A biblioteca [https://github.com/gojeffotoni/quick](https://github.com/gojeffotoni/quick) inclui vários exemplos de como usar middleware em seu aplicativo Quick. O exemplo abaixo usa o middleware Logger para registrar informações sobre cada solicitação recebida:
 
 ```go
 
@@ -74,4 +74,4 @@ Neste exemplo, app.Use é usado para adicionar o middleware Logger à cadeia de 
 
 O middleware Logger registra informações sobre cada solicitação, incluindo o método HTTP, a rota solicitada, o endereço IP do cliente e o tempo necessário para lidar com a solicitação. Isso pode ser útil para fins de depuração e monitoramento de desempenho do aplicativo.
 
-Além do middleware Logger, a [https:/github.com/gojeffotoni/quick](https:/github.com/gojeffotoni/quick) inclui vários outros exemplos de middleware, incluindo o middleware Recovery para lidar com erros panics, o middleware CORS para habilitar o acesso cruzado a recursos e o middleware JWT para autenticação baseada em tokens JWT.
+Além do middleware Logger, a [https://github.com/gojeffotoni/quick](https://github.com/gojeffotoni/quick) inclui vários outros exemplos de middleware, incluindo o middleware Recovery para lidar com erros panics, o middleware CORS para habilitar o acesso cruzado a recursos e o middleware JWT para autenticação baseada em tokens JWT.

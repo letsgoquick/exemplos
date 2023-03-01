@@ -1,4 +1,4 @@
-github.com/gojeffotoni/quick v0.0.0-20230301032236-3f66a2093069 h1:S1PR2x2RLE4IxY5LAMwzbMQX7Qn7eXZz7pA7DQWySlA=
-github.com/gojeffotoni/quick v0.0.0-20230301032236-3f66a2093069/go.mod h1:dxnviUz3MY6LJdXAnQVA5c+cGK2pG90mLGk58o3PgBg=
+github.com/gojeffotoni/quick v0.0.0-20230301034615-32315d264a1b h1:fnJZnsG4Xkm3NbBYoq38DBHNck09IYnelSaKZDT3YDM=
+github.com/gojeffotoni/quick v0.0.0-20230301034615-32315d264a1b/go.mod h1:dxnviUz3MY6LJdXAnQVA5c+cGK2pG90mLGk58o3PgBg=
 github.com/rs/cors v1.8.3 h1:O+qNyWn7Z+F9M0ILBHgMVPuB1xTOucVd5gtaYyXBpRo=
 github.com/rs/cors v1.8.3/go.mod h1:XyqrcTp5zjWr1wsJ8PIRZssZ8b/WMcMf71DJnit4EMU=

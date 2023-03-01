@@ -1,6 +1,7 @@
 package main
 
 import "github.com/gojeffotoni/quick"
+       "net/http"
 
 func main() {
 app.Use(func(h http.Handler) http.Handler {

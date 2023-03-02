@@ -60,6 +60,11 @@ func main() {
  app.Listen("0.0.0.0:8080")
 }
 ```
+```go
+curl --location --request GET 'http://localhost:8080/v2/user' \
+--header 'Content-Type: text/plain' \
+--data '
+```
 
 
 

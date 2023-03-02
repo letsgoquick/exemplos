@@ -12,12 +12,30 @@ Esperamos que estes exemplos sejam úteis para você e ajudem a melhorar a quali
 
 ## Quais exemplos você encontrará no repositório?
 
-### Lista de itens
+    Tópicos
+=================
 
-    - group: é uma função em JavaScript que permite agrupar declarações de funções juntas. É útil para reduzir a poluição do escopo global e organizar o código em seções relacionadas.
-    - middleware: é um software que age como um intermediário entre dois sistemas para permitir a comunicação. Em aplicações web, middleware é frequentemente usado para processar requisições HTTP antes que elas sejam enviadas para o servidor ou aplicação.
-    - quick.delete: é uma função da biblioteca Quick que ajuda a testar a operação de exclusão (DELETE) de uma API. Ela pode gerar automaticamente casos de teste para diferentes entradas, tornando os testes mais completos e robustos.
-    - quick.post: é uma função da biblioteca Quick que ajuda a testar a operação de criação (POST) de uma API. Ela pode gerar automaticamente casos de teste para diferentes entradas, tornando os testes mais completos e robustos.
-    - quick.put: é uma função da biblioteca Quick que ajuda a testar a operação de atualização (PUT) de uma API. Ela pode gerar automaticamente casos de teste para diferentes entradas, tornando os testes mais completos e robustos.
-    - quick.regex: é uma função da biblioteca Quick que ajuda a testar expressões regulares em Go. Ela pode gerar automaticamente casos de teste para diferentes entradas, permitindo testar se as expressões regulares funcionam corretamente em todos os casos.
-    - quick.start: é uma função da biblioteca Quick que ajuda a escrever testes de propriedade em Go. Com ela, é possível testar propriedades de funções e estruturas, em vez de testar casos de uso específicos. Isso ajuda a encontrar falhas em seu código que podem não ser encontradas em testes tradicionais.
+  * [Group](/group/)
+  * [Middleware](/middleware/)
+  * [Quick.delete](quick.delete/)
+  * [Quick.post](quick.post/)
+  * [Quick.put](quick.put/)
+  * [Quick.regex](quick.regex/)
+  * [Quick.start](quick.start/)
+
+```go
+  package main
+
+import "github.com/gojeffotoni/quick"
+import "github.com/gojeffotoni/quick/middleware/cors"
+
+func main() {
+  app := quick.New()
+  app.Get("/v1/user", func(c *quick.Ctx) {
+    c.Set("Content-Type", "application/json")
+    c.Status(200).SendString("Quick em ação com Cors❤️!")
+  })
+  app.Listen("0.0.0.0:8080")
+}
+
+```

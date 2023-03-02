@@ -12,9 +12,6 @@ Esperamos que estes exemplos sejam úteis para você e ajudem a melhorar a quali
 
 ## Quais exemplos você encontrará no repositório?
 
-    Tópicos
-=================
-
   * [Group](/group/)
   * [Middleware](/middleware/)
   * [Quick.delete](quick.delete/)
@@ -24,7 +21,7 @@ Esperamos que estes exemplos sejam úteis para você e ajudem a melhorar a quali
   * [Quick.start](quick.start/)
 
 ```go
-  package main
+package main
 
 import "github.com/gojeffotoni/quick"
 import "github.com/gojeffotoni/quick/middleware/cors"

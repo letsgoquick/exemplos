@@ -6,57 +6,6 @@ O Quick é um framework web em Go que suporta o middleware de CORS para lidar co
 
 Para adicionar o middleware de CORS em um aplicativo Quick, basta importar a biblioteca e chamar a função Cors() passando as opções de configuração desejadas.
 
-## cors.rs
-
-```go
-package main
-
-import (
-	"fmt"
-	"log"
-
-	"github.com/gojeffotoni/quick"
-	"github.com/gojeffotoni/quick/middleware/msgid"
-	"github.com/rs/cors"
-)
-
-func main() {
-
-	app := quick.New()
-
-	app.Post("/v1/user", func(c *quick.Ctx) {
-		c.Set("Content-Type", "application/json")
-		type My struct {
-			Name string `json:"name"`
-			Year int    `json:"year"`
-		}
-
-		var my My
-		err := c.BodyParser(&my)
-		fmt.Println("byte:", c.Body())
-
-		if err != nil {
-			c.Status(400).SendString(err.Error())
-			return
-		}
-
-		fmt.Println("String:", c.BodyString())
-		c.Status(200).JSON(&my)
-		return
-	})
-
-	app.Use(msgid.New())
-	app.Get("/v1/user", func(c *quick.Ctx) {
-		c.Set("Content-Type", "application/json")
-		c.Status(200).String("Quick ação total!!!")
-		return
-	})
-
-	mux := cors.Default().Handler(app)
-	log.Fatal(app.Listen("0.0.0.0:8080", mux))
-}
-```
-
 ## cors.nativo
 
 ```go
@@ -68,7 +17,6 @@ import (
 
 	"github.com/gojeffotoni/quick"
 	"github.com/gojeffotoni/quick/middleware/cors"
-	"github.com/gojeffotoni/quick/middleware/msgid"
 )
 
 func main() {
@@ -101,58 +49,11 @@ func main() {
 		return
 	})
 
-	app.Use(msgid.New())
-	app.Get("/v1/user", func(c *quick.Ctx) {
-		c.Set("Content-Type", "application/json")
-		c.Status(200).String("Quick ação total!!!")
-		return
-	})
-
 	log.Fatal(app.Listen("0.0.0.0:8080"))
 }
 ```
-
-## myserver
-
 ```go
-package main
-
-import (
-    "io"
-    "net/http"
-
-    "github.com/gojeffotoni/quick/middleware/cors"
-)
-
-type MyHandler struct{}
-
-func (h *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-    w.Header().Add("Content-Type", "application/json")
-    b, err := io.ReadAll(r.Body)
-    if err != nil {
-        w.WriteHeader(400)
-        w.Write([]byte(`{"msg":"error"}`))
-        return
-    }
-    w.WriteHeader(200)
-    w.Write(b)
-}
-
-func OtherHandler(w http.ResponseWriter, r *http.Request) {
-    w.Header().Add("Content-Type", "application/json")
-    w.WriteHeader(200)
-    w.Write([]byte("Outro endpoint!"))
-}
-
-func main() {
-    mux := http.NewServeMux()
-    mux.Handle("/v1/user", &MyHandler{})
-    mux.HandleFunc("/outro", OtherHandler)
-
-    newmux := cors.Default().Handler(mux)
-    println("server: :8080")
-    http.ListenAndServe(":8080", newmux)
-}
+curl --location 'http://localhost:8080/v1/user'
 ```
 
 ## cors.blocked
@@ -208,6 +109,103 @@ func main() {
 
 	log.Fatal(app.Listen("0.0.0.0:8080"))
 
+}
+```
+```go
+curl --location 'http://localhost:8080/v1/blocked'
+```
+
+## cors.rs
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/gojeffotoni/quick"
+	"github.com/gojeffotoni/quick/middleware/msgid"
+	"github.com/rs/cors"
+)
+
+func main() {
+
+	app := quick.New()
+
+	app.Post("/v1/user", func(c *quick.Ctx) {
+		c.Set("Content-Type", "application/json")
+		type My struct {
+			Name string `json:"name"`
+			Year int    `json:"year"`
+		}
+
+		var my My
+		err := c.BodyParser(&my)
+		fmt.Println("byte:", c.Body())
+
+		if err != nil {
+			c.Status(400).SendString(err.Error())
+			return
+		}
+
+		fmt.Println("String:", c.BodyString())
+		c.Status(200).JSON(&my)
+		return
+	})
+
+	app.Use(msgid.New())
+	app.Get("/v1/user", func(c *quick.Ctx) {
+		c.Set("Content-Type", "application/json")
+		c.Status(200).String("Quick ação total!!!")
+		return
+	})
+
+	mux := cors.Default().Handler(app)
+	log.Fatal(app.Listen("0.0.0.0:8080", mux))
+}
+```
+
+## myserver
+
+```go
+package main
+
+import (
+    "io"
+    "net/http"
+
+    "github.com/gojeffotoni/quick/middleware/cors"
+)
+
+type MyHandler struct{}
+
+func (h *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    w.Header().Add("Content-Type", "application/json")
+    b, err := io.ReadAll(r.Body)
+    if err != nil {
+        w.WriteHeader(400)
+        w.Write([]byte(`{"msg":"error"}`))
+        return
+    }
+    w.WriteHeader(200)
+    w.Write(b)
+}
+
+func OtherHandler(w http.ResponseWriter, r *http.Request) {
+    w.Header().Add("Content-Type", "application/json")
+    w.WriteHeader(200)
+    w.Write([]byte("Outro endpoint!"))
+}
+
+func main() {
+    mux := http.NewServeMux()
+    mux.Handle("/v1/user", &MyHandler{})
+    mux.HandleFunc("/outro", OtherHandler)
+
+    newmux := cors.Default().Handler(mux)
+    println("server: :8080")
+    http.ListenAndServe(":8080", newmux)
 }
 ```
 

@@ -29,6 +29,9 @@ func main() {
  app.Listen("0.0.0.0:8080")
 }
 ```
+```go
+curl --location 'http://localhost:8080/v1/user' \
+```
 
 #### Group02
 

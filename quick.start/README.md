@@ -1,4 +1,4 @@
-#Start
+# Start
 
 "Start" é um termo geralmente usado em aplicativos web para indicar que o servidor está sendo iniciado e está pronto para lidar com solicitações HTTP. No contexto do Framework Quick, "start" geralmente se refere à ação de iniciar o servidor web Quick.
 

@@ -166,7 +166,7 @@ func main() {
 }
 ```
 
-## meu próprio serviço go
+## usando net/http
 
 ```go
 package main

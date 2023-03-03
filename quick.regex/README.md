@@ -27,7 +27,5 @@ func main() {
 }
 ```
 ```go
-curl --location --request GET 'http://localhost:8080/v2/user' \
---header 'Content-Type: text/plain' \
---data '
+curl --location --request GET 'http://localhost:8080/v1/user' \
 ```

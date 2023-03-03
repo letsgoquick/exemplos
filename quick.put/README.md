@@ -23,4 +23,7 @@ func main() {
 	app.Listen(":8080")
 }
 ```
+```go
+curl --location --request PUT 'http://localhost:8080/users/:id'
+```
 

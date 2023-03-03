@@ -125,7 +125,6 @@ import (
 	"log"
 
 	"github.com/gojeffotoni/quick"
-	"github.com/gojeffotoni/quick/middleware/msgid"
 	"github.com/rs/cors"
 )
 
@@ -154,16 +153,12 @@ func main() {
 		return
 	})
 
-	app.Use(msgid.New())
-	app.Get("/v1/user", func(c *quick.Ctx) {
-		c.Set("Content-Type", "application/json")
-		c.Status(200).String("Quick ação total!!!")
-		return
-	})
-
 	mux := cors.Default().Handler(app)
 	log.Fatal(app.Listen("0.0.0.0:8080", mux))
 }
+```
+```go
+curl --location 'http://localhost:8080/v1/user'
 ```
 
 ## myserver
@@ -207,6 +202,9 @@ func main() {
     println("server: :8080")
     http.ListenAndServe(":8080", newmux)
 }
+```
+```go
+curl --location 'http://localhost:8080/v1/user'
 ```
 
 

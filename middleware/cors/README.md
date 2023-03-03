@@ -166,7 +166,7 @@ func main() {
 }
 ```
 
-## myserver
+## meu próprio serviço go
 
 ```go
 package main

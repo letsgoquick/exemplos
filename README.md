@@ -24,7 +24,6 @@ Sinta-se à vontade para explorar o repositório, contribuir com seus próprios 
 package main
 
 import "github.com/gojeffotoni/quick"
-import "github.com/gojeffotoni/quick/middleware/cors"
 
 func main() {
   app := quick.New()

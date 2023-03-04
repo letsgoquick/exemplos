@@ -161,7 +161,7 @@ func main() {
 curl --location 'http://localhost:8080/v1/user'
 ```
 
-## myserver
+## usando net/http
 
 ```go
 package main

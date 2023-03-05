@@ -9,7 +9,7 @@ Por exemplo, se você tiver um conjunto de rotas que precisam de autenticação 
 ```go
 package main
 
-import "github.com/gojeffotoni/quick"
+import "github.com/jeffotoni/quick"
 
 func main() {
 	app := quick.New(quick.Config{
@@ -38,7 +38,7 @@ curl --location 'http://localhost:8080/v1/user' \
 ```go
 package main
 
-import "github.com/gojeffotoni/quick"
+import "github.com/jeffotoni/quick"
 
 func main() {
 	app := quick.New(quick.Config{

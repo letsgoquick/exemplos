@@ -1,8 +1,8 @@
-module github.com/gojeffotoni/quick/examples
+module github.com/jeffotoni/quick/examples
 
 go 1.20
 
 require (
-	github.com/gojeffotoni/quick v0.0.0-20230302062810-4e03b94542ee
+	github.com/jeffotoni/quick v0.0.0-20230305232311-2a864c720100
 	github.com/rs/cors v1.8.3
 )

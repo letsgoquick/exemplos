@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gojeffotoni/quick"
-	"github.com/gojeffotoni/quick/middleware/msgid"
+	"github.com/jeffotoni/quick"
+	"github.com/jeffotoni/quick/middleware/msgid"
 )
 
 func main() {

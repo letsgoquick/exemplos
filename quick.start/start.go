@@ -1,6 +1,6 @@
 package main
 
-import "github.com/gojeffotoni/quick"
+import "github.com/jeffotoni/quick"
 
 func main() {
 	app := quick.New()

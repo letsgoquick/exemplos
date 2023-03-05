@@ -6,7 +6,7 @@ Este repositório contém exemplos práticos de como utilizar a biblioteca Quick
 
 Os exemplos apresentados aqui mostram como utilizar o Quick em diferentes tipos de testes, desde simples até mais complexos, ajudando a começar rapidamente e aprender as melhores práticas de teste.
 
-O Quick é desenvolvido por **gojeffotoni** e é uma excelente opção para escrever testes em Go, encontrando falhas em sua aplicação que podem não ser encontradas em testes tradicionais e aumentando a qualidade do código.
+O Quick é desenvolvido por **jeffotoni** e é uma excelente opção para escrever testes em Go, encontrando falhas em sua aplicação que podem não ser encontradas em testes tradicionais e aumentando a qualidade do código.
 
 Sinta-se à vontade para explorar o repositório, contribuir com seus próprios exemplos e melhorias para a biblioteca Quick. Obrigado por usar Quick!
 
@@ -23,7 +23,7 @@ Sinta-se à vontade para explorar o repositório, contribuir com seus próprios 
 ```go
 package main
 
-import "github.com/gojeffotoni/quick"
+import "github.com/jeffotoni/quick"
 
 func main() {
   app := quick.New()

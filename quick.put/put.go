@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gojeffotoni/quick"
+	"github.com/jeffotoni/quick"
 )
 
 func main() {

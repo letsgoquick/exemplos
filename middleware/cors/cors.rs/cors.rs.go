@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gojeffotoni/quick"
+	"github.com/jeffotoni/quick"
 	"github.com/rs/cors"
 )
 

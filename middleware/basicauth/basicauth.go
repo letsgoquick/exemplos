@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/gojeffotoni/quick"
+	"github.com/jeffotoni/quick"
 )
 
 // curl -i -H "Block:true" -XGET localhost:8080/v1/blocked
@@ -18,15 +18,7 @@ func main() {
 			if r.Header.Get("Block") == "" || r.Header.Get("Block") == "false" {
 				w.WriteHeader(400)
 				w.Write([]byte(`{"Message": "Envia block em seu header, por favor! :("}`))
-				return
-			}
-
-			if r.Header.Get("Block") == "true" {
-				w.WriteHeader(200)
-				w.Write([]byte(""))
-				return
-			}
-			h.ServeHTTP(w, r)
+				returnf r
 		})
 	})
 

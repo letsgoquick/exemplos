@@ -17,7 +17,7 @@ func main() {
 		AllowedHeaders: []string{"*"},
 	}), "cors")
 
-	app.Post("/v1/user", func(c *quick.Ctx) {
+	app.Post("/v1/user", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
 		type My struct {
 			Name string `json:"name"`
@@ -29,13 +29,11 @@ func main() {
 		fmt.Println("byte:", c.Body())
 
 		if err != nil {
-			c.Status(400).SendString(err.Error())
-			return
+			return c.Status(400).SendString(err.Error())
 		}
 
 		fmt.Println("String:", c.BodyString())
-		c.Status(200).JSON(&my)
-		return
+		return c.Status(200).JSON(&my)
 	})
 
 	log.Fatal(app.Listen("0.0.0.0:8080"))

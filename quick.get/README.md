@@ -27,3 +27,51 @@ curl --location 'http://localhost:8080/greet/:name'
 --header 'Content-Type", "text/plain' \
 --data '
 ```
+
+```go
+package main
+
+import (
+	"github.com/jeffotoni/quick"
+)
+
+func main() {
+	app := quick.New()
+
+	app.Get("/v2/user", func(c *quick.Ctx) error {
+		c.Set("Content-Type", "application/json")
+		return c.Status(200).SendString("Opa, funcionando!")
+	})
+
+	app.Listen("0.0.0.0:8080")
+}
+```
+```go
+curl --location 'http://localhost:8080/greet/:name'
+--header 'Content-Type", "application/json' \
+--data '
+```
+
+```go
+package main
+
+import (
+	"github.com/jeffotoni/quick"
+)
+
+func main() {
+	app := quick.New()
+
+	app.Get("/v3/user", func(c *quick.Ctx) error {
+		c.Set("Content-Type", "application/json")
+		return c.Status(200).SendString("Quick em ação!")
+	})
+
+	app.Listen("0.0.0.0:8080")
+}
+```
+```go
+curl --location 'http://localhost:8080/greet/:name'
+--header 'Content-Type", "application/json' \
+--data '
+```

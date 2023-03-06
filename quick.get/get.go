@@ -14,5 +14,15 @@ func main() {
 		return c.Status(200).SendString("Olá " + name + "!")
 	})
 
+	app.Get("/v2/user", func(c *quick.Ctx) error {
+		c.Set("Content-Type", "application/json")
+		return c.Status(200).SendString("Opa, funcionando!")
+	})
+
+	app.Get("/v3/user", func(c *quick.Ctx) error {
+		c.Set("Content-Type", "application/json")
+		return c.Status(200).SendString("Quick em ação!")
+	})
+
 	app.Listen("0.0.0.0:8080")
 }

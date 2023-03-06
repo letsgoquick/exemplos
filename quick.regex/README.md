@@ -15,6 +15,7 @@ import (
 func main() {
 	app := quick.New()
 
+	// adicionando middleware msgid
 	app.Use(msgid.New())
 
 	app.Get("/v1/user/{id:[0-9]+}", func(c *quick.Ctx) error {
@@ -22,9 +23,12 @@ func main() {
 		return c.Status(200).String("Quick ação total!!!")
 	})
 
-	app.Listen("0.0.0.0:8080")
+	app.Listen(":8080")
 }
+
 ```
 ```go
 curl --location --request GET 'http://localhost:8080/v1/user' \
+--header 'Content-Type", "application/json' \
+--data '
 ```

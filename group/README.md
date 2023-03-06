@@ -30,6 +30,8 @@ func main() {
 ```
 ```go
 curl --location 'http://localhost:8080/v1/user' \
+--header 'Content-Type", "application/json' \
+--data '
 ```
 
 #### Group02
@@ -62,7 +64,7 @@ func main() {
 ```
 ```go
 curl --location --request GET 'http://localhost:8080/v2/user' \
---header 'Content-Type: text/plain' \
+--header 'Content-Type", "application/json' \
 --data '
 ```
 

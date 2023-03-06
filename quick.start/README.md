@@ -22,4 +22,6 @@ func main() {
 
 ```go
 curl --location 'http://localhost:8080/v1/user' \
+--header 'Content-Type", "application/json' \
+--data '
 ```

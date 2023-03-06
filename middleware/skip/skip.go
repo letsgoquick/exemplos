@@ -30,7 +30,7 @@ func main() {
 		})
 	})
 
-	app.Get("/v1/blocked", func(c *quick.Ctx) {
+	app.Get("/v1/blocked", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
 
 		type my struct {
@@ -40,7 +40,7 @@ func main() {
 
 		log.Println(c.Headers["Messageid"])
 
-		c.Status(200).JSON(&my{
+		return c.Status(200).JSON(&my{
 			Msg:   "Quick ❤️",
 			Block: c.Headers["Block"][0],
 		})

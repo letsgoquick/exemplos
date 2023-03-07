@@ -31,6 +31,12 @@ func main() {
 		return c.Status(200).SendString("Quick em ação ❤️!")
 	})
 
+	app.Get("/hello/:name", func(c *quick.Ctx) error {
+		name := c.Param("name")
+		message := "Olá, " + name + "!"
+		return c.Status(200).SendString(message)
+	})
+
 	for k, v := range app.GetRoute() {
 		fmt.Println(k, "[", v, "]")
 	}

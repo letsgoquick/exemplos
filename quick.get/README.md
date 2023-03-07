@@ -75,3 +75,28 @@ curl --location --request GET 'http://localhost:8080/v1/userx/:p1/:p2/cust/:p3/:
 --header 'Content-Type: application/json/' \
 --data 'Quick em ação ❤️!'
 ```
+
+```go
+package main
+
+import (
+	"github.com/jeffotoni/quick"
+)
+
+func main() {
+	app := quick.New()
+
+	app.Get("/hello/:name", func(c *quick.Ctx) error {
+		name := c.Param("name")
+		message := "Olá, " + name + "!"
+		return c.Status(200).SendString(message)
+	})
+
+	app.Listen("0.0.0.0:8080")
+}
+```
+```go
+curl --location --request GET 'http://localhost:8080/hello/:name' \
+--header 'Content-Type: application/json/' \
+--data 'Olá, !'
+```

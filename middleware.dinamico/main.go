@@ -1,34 +1,34 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/jeffotoni/quick"
 )
 
 func main() {
 	app := quick.New()
- 
- app.Use(func(h http.Handler) http.Handler {
-           return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-                   //This is the third middleware! This guy blocks request if header contains Block == true
-                   if r.Header.Get("Block") == "" {
-                           w.WriteHeader(400)
-                           w.Write([]byte("Message": "send the block header, please! :("))
-                           return
-                   }
 
-                   if r.Header.Get("Block") == "true" {
-                          w.WriteHeader(200)
-                           w.Write([]byte("Message": "quicks block this request :)"))
-                       return
-                   }
+	app.Use(func(h http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if r.Header.Get("Block") == "" {
+				w.WriteHeader(400)
+				w.Write([]byte("Sua chamada não irá continuar, preciso definir seu Header com Block: false para passar"))
+				return
+			}
 
-                   h.ServeHTTP(w, r)
-           })
-         })
+			if r.Header.Get("Block") == "true" {
+				w.WriteHeader(200)
+				w.Write([]byte("Sua messgem está bloqueada, coloque false em seu parametro Block"))
+				return
+			}
+			h.ServeHTTP(w, r)
+		})
+	})
 
-		 app.Get("/greet/:name", func(c *quick.Ctx) error {
+	app.Get("/greet/:name", func(c *quick.Ctx) error {
 		name := c.Param("name")
-		c.Set("Content-Type", "text/plain")
+		c.Set("Content-Type", "application/json")
 		return c.Status(200).SendString("Olá " + name + "!")
 	})
 

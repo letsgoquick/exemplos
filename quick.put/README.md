@@ -24,6 +24,8 @@ func main() {
 }
 ```
 ```go
-curl --location --request PUT 'http://localhost:8080/users/:id'
+$ curl --location --request PUT 'http://localhost:8080/users/:id' \
+--header 'Content-Type: application/json/' \
+--data 'Usuário  atualizado com sucesso!'
 ```
 

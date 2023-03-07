@@ -23,9 +23,9 @@ func main() {
 }
 ```
 ```go
-curl --location 'http://localhost:8080/greet/:name'
---header 'Content-Type", "text/plain' \
---data '
+$ curl --location --request GET 'http://localhost:8080/greet/:name' \
+--header 'Content-Type: application/json/' \
+--data 'Olá !'
 ```
 
 ```go
@@ -47,9 +47,9 @@ func main() {
 }
 ```
 ```go
-curl --location 'http://localhost:8080/greet/:name'
---header 'Content-Type", "application/json' \
---data '
+$ curl --location --request GET 'http://localhost:8080/v2/user' \
+--header 'Content-Type: application/json/' \
+--data 'Opa, funcionando!'
 ```
 
 ```go
@@ -62,16 +62,16 @@ import (
 func main() {
 	app := quick.New()
 
-	app.Get("/v3/user", func(c *quick.Ctx) error {
+	app.Get("/v1/userx/:p1/:p2/cust/:p3/:p4", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
-		return c.Status(200).SendString("Quick em ação!")
+		return c.Status(200).SendString("Quick em ação ❤️!")
 	})
 
 	app.Listen("0.0.0.0:8080")
 }
 ```
 ```go
-curl --location 'http://localhost:8080/greet/:name'
---header 'Content-Type", "application/json' \
---data '
+curl --location --request GET 'http://localhost:8080/v1/userx/:p1/:p2/cust/:p3/:p4' \
+--header 'Content-Type: application/json/' \
+--data 'Quick em ação ❤️!'
 ```

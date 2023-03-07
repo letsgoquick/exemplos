@@ -21,7 +21,7 @@ func main() {
 ```
 
 ```go
-curl --location 'http://localhost:8080/v1/user' \
---header 'Content-Type", "application/json' \
---data '
+$ curl --location --request GET 'http://localhost:8080/v1/user' \
+--header 'Content-Type: application/json/' \
+--data 'Quick em ação com Cors❤️!'
 ```

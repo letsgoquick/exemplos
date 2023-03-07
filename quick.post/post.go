@@ -1,51 +1,25 @@
 package main
 
-import (
-	"log"
-	"net/http"
+import "github.com/jeffotoni/quick"
 
-	"github.com/jeffotoni/quick"
-)
+type My struct {
+	Name string `json:"name"`
+	Year int    `json:"year"`
+}
 
-// curl -i -H "Block:true" -XGET localhost:8080/v1/blocked
 func main() {
-
 	app := quick.New()
-
-	app.Use(func(h http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			//Este middleware, irá bloquear sua requisicao se não passar header Block:true
-			if r.Header.Get("Block") == "" || r.Header.Get("Block") == "false" {
-				w.WriteHeader(400)
-				w.Write([]byte(`{"Message": "Envia block em seu header, por favor! :("}`))
-				return
-			}
-
-			if r.Header.Get("Block") == "true" {
-				w.WriteHeader(200)
-				w.Write([]byte(""))
-				return
-			}
-			h.ServeHTTP(w, r)
-		})
-	})
-
-	app.Get("/v1/blocked", func(c *quick.Ctx) error {
-		c.Set("Content-Type", "application/json")
-
-		type my struct {
-			Msg   string `json:"msg"`
-			Block string `json:"block_message"`
+	app.Post("/v1/user", func(c *quick.Ctx) error {
+		var my My
+		err := c.BodyParser(&my)
+		if err != nil {
+			c.Status(400).SendString(err.Error())
 		}
 
-		log.Println(c.Headers["Messageid"])
-
-		return c.Status(200).JSON(&my{
-			Msg:   "Quick ❤️",
-			Block: c.Headers["Block"][0],
-		})
+		return c.Status(200).JSON(&my)
+		// ou
+		//c.Status(200).String(c.BodyString())
 	})
 
-	log.Fatal(app.Listen("0.0.0.0:8080"))
-
+	app.Listen("0.0.0.0:8080")
 }

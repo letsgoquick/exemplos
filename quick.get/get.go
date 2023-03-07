@@ -21,9 +21,14 @@ func main() {
 		return c.Status(200).SendString("Opa, funcionando!")
 	})
 
-	app.Get("/v3/user", func(c *quick.Ctx) error {
+	// app.Get("/v3/user", func(c *quick.Ctx) error {
+	//	c.Set("Content-Type", "application/json")
+	//	return c.Status(200).SendString(c.Query("id"))
+	// })
+
+	app.Get("/v1/userx/:p1/:p2/cust/:p3/:p4", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
-		return c.Status(200).SendString(c.Query("id"))
+		return c.Status(200).SendString("Quick em ação ❤️!")
 	})
 
 	for k, v := range app.GetRoute() {

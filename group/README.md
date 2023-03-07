@@ -29,9 +29,9 @@ func main() {
 }
 ```
 ```go
-curl --location 'http://localhost:8080/v1/user' \
---header 'Content-Type", "application/json' \
---data '
+$ curl --location --request GET 'http://localhost:8080/v1/user' \
+--header 'Content-Type: application/json/' \
+--data '[GET] [GROUP] /v1/user ok!!!'
 ```
 
 #### Group02
@@ -63,9 +63,9 @@ func main() {
 }
 ```
 ```go
-curl --location --request GET 'http://localhost:8080/v2/user' \
---header 'Content-Type", "application/json' \
---data '
+$ curl --location --request GET 'http://localhost:8080/v2/user' \
+--header 'Content-Type: application/json/' \
+--data 'Quick em ação com [POST] /v2/user ❤️!'
 ```
 
 

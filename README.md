@@ -1,4 +1,4 @@
-# Examples
+# Exemplos
 
 ### **Bem-vindo ao repositório de exemplos do Quick!**
 

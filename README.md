@@ -2,6 +2,8 @@
 
 ### **Bem-vindo ao repositório de exemplos do Quick!**
 
+O **Quick** é um gerenciador de rotas para Go bem flexível e extensível com diversas funcionalidades. O repositório do Framework Quick pode ser encontrado em [aqui](https://github.com/jeffotoni/quick).
+
 Este repositório contém exemplos práticos de como utilizar a biblioteca Quick em Go, uma biblioteca de teste baseada em propriedades que permite escrever testes mais robustos e completos para sua aplicação.
 
 Os exemplos apresentados aqui mostram como utilizar o Quick em diferentes tipos de testes, desde simples até mais complexos, ajudando a começar rapidamente e aprender as melhores práticas de teste.

@@ -1,4 +1,4 @@
-# Exemplos
+# Exemplos quick ![Golang Logo](https://raw.githubusercontent.com/jeffotoni/quick/main/quick.png)
 
 ### **Bem-vindo ao repositório de exemplos do Quick!**
 

@@ -13,12 +13,14 @@ Sinta-se à vontade para explorar o repositório, contribuir com seus próprios 
 ## Quais exemplos você encontrará no repositório?
 
   * [Group](/group/)
+  * [Middleware Dinamico](/middleware.dinamico/)
   * [Middleware](/middleware/)
-  * [Quick.delete](quick.delete/)
-  * [Quick.post](quick.post/)
-  * [Quick.put](quick.put/)
-  * [Quick.regex](quick.regex/)
-  * [Quick.start](quick.start/)
+  * [Delete](quick.delete/)
+  * [Get](quick.get/)
+  * [Post](quick.post/)
+  * [Put](quick.put/)
+  * [Regex](quick.regex/)
+  * [Start](quick.start/)
 
 ```go
 package main

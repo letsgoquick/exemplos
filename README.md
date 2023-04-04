@@ -38,15 +38,17 @@ Sinta-se à vontade para explorar o repositório, contribuir com seus próprios 
 
 * [Middleware](/middleware/)
 
-* [Quick.delete](quick.delete/)
+* [Delete](quick.delete/)
 
-* [Quick.post](quick.post/)
+* [Get](quick.get/)
 
-* [Quick.put](quick.put/)
+* [Post](quick.post/)
 
-* [Quick.regex](quick.regex/)
+* [Put](quick.put/)
 
-* [Quick.start](quick.start/)
+* [Regex](quick.regex/)
+
+* [Start](quick.start/)
 
   
 

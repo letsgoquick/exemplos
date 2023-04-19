@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	app := quick.New()
+	q := quick.New()
 
-	app.Use(func(h http.Handler) http.Handler {
+	q.Use(func(h http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			if r.Header.Get("Block") == "" {
 				w.WriteHeader(400)
@@ -26,11 +26,11 @@ func main() {
 		})
 	})
 
-	app.Get("/greet/:name", func(c *quick.Ctx) error {
+	q.Get("/greet/:name", func(c *quick.Ctx) error {
 		name := c.Param("name")
 		c.Set("Content-Type", "application/json")
 		return c.Status(200).SendString("Olá " + name + "!")
 	})
 
-	app.Listen("0.0.0.0:8080")
+	q.Listen("0.0.0.0:8080")
 }

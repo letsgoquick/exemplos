@@ -8,8 +8,8 @@ type My struct {
 }
 
 func main() {
-	app := quick.New()
-	app.Post("/v1/user", func(c *quick.Ctx) error {
+	q := quick.New()
+	q.Post("/v1/user", func(c *quick.Ctx) error {
 		var my My
 		err := c.BodyParser(&my)
 		if err != nil {
@@ -21,5 +21,5 @@ func main() {
 		//c.Status(200).String(c.BodyString())
 	})
 
-	app.Listen("0.0.0.0:8080")
+	q.Listen("0.0.0.0:8080")
 }

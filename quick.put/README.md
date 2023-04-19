@@ -12,15 +12,15 @@ import (
 )
 
 func main() {
-	app := quick.New()
+	q := quick.New()
 
-	app.Put("/users/:id", func(c *quick.Ctx) error {
+	q.Put("/users/:id", func(c *quick.Ctx) error {
 		userID := c.Param("id")
 		// Lógica de atualização do usuário
 		return c.Status(200).SendString("Usuário " + userID + " atualizado com sucesso!")
 	})
 
-	app.Listen(":8080")
+	q.Listen(":8080")
 }
 ```
 ```go

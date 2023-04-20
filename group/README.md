@@ -12,11 +12,11 @@ package main
 import "github.com/jeffotoni/quick"
 
 func main() {
-	app := quick.New(quick.Config{
+	q := quick.New(quick.Config{
 		MaxBodySize: 5 * 1024 * 1024,
 	})
 
-	group := app.Group("/v1")
+	group := q.Group("/v1")
 	group.Get("/user", func(c *quick.Ctx) error {
 		return c.Status(200).SendString("[GET] [GROUP] /v1/user ok!!!")
 	})
@@ -25,7 +25,7 @@ func main() {
 		return c.Status(200).SendString("[POST] [GROUP] /v1/user ok!!!")
 	})
 
- app.Listen("0.0.0.0:8080")
+ q.Listen("0.0.0.0:8080")
 }
 ```
 ```go
@@ -42,11 +42,11 @@ package main
 import "github.com/jeffotoni/quick"
 
 func main() {
-	app := quick.New(quick.Config{
+	q := quick.New(quick.Config{
 		MaxBodySize: 5 * 1024 * 1024,
 	})
 
-	group2 := app.Group("/v2")
+	group2 := q.Group("/v2")
 
 	group2.Get("/user", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
@@ -59,7 +59,7 @@ func main() {
 	})
 
 
- app.Listen("0.0.0.0:8080")
+ q.Listen("0.0.0.0:8080")
 }
 ```
 ```go

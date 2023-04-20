@@ -10,19 +10,21 @@ import (
 // curl -i -H "Block:true" -XGET localhost:8080/v1/blocked
 func main() {
 
-	app := quick.New()
+	q := quick.New()
 
-	app.Use(func(h http.Handler) http.Handler {
-		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}
-			//Este middleware, irá bloquear sua requisicao se não passar header Block:true
+	q.Use(func(h http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// Este middleware irá bloquear sua requisição se não passar o header Block:true
 			if r.Header.Get("Block") == "" || r.Header.Get("Block") == "false" {
-				w.WriteHeader(400)
-				w.Write([]byte(`{"Message": "Envia block em seu header, por favor! :("}`))
-				returnf r
+				w.WriteHeader(403)
+				w.Write([]byte(`{"Message": "Envie block no seu header, por favor! :("}`))
+				return
+			}
+			h.ServeHTTP(w, r)
 		})
 	})
 
-	app.Get("/v1/blocked", func(c *quick.Ctx) error {
+	q.Get("/v1/blocked", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
 
 		type my struct {
@@ -38,6 +40,6 @@ func main() {
 		})
 	})
 
-	log.Fatal(app.Listen("0.0.0.0:8080"))
+	log.Fatal(q.Listen("0.0.0.0:8080"))
 
 }

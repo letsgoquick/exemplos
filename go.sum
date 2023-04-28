@@ -1,4 +1,4 @@
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/jeffotoni/quick v0.0.0-20230426010822-ba35cdf0bcd8 h1:0pI+bRJdpTnvC35lp7s93bxhLF8IPQhwMYqH4xlMKq0=
-github.com/jeffotoni/quick v0.0.0-20230426010822-ba35cdf0bcd8/go.mod h1:6Kc6049ek72X6ir1HyyXbT2b8H06vOzEzuynIlsrVZE=
+github.com/jeffotoni/quick v0.0.0-20230427013618-39c6889c4273 h1:SJDhX0pzDBLoWtQOpKrx0IbdWE21ISq8P+WSgEgHalM=
+github.com/jeffotoni/quick v0.0.0-20230427013618-39c6889c4273/go.mod h1:6Kc6049ek72X6ir1HyyXbT2b8H06vOzEzuynIlsrVZE=

@@ -7,17 +7,18 @@ import (
 	"github.com/jeffotoni/quick/middleware/maxbody"
 )
 
+// curl -i -XPOST http://0.0.0.0:8080/v1/user/maxbody/large -d '{"data":"quick is awesome!"}'
 func main() {
-	app := quick.New()
+	q := quick.New()
 
-	app.Use(maxbody.New(0))
+	q.Use(maxbody.New(0))
 
-	app.Post("/v1/user/maxbody/large", func(c *quick.Ctx) error {
+	q.Post("/v1/user/maxbody/large", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
 
 		log.Printf("body: %s", c.BodyString())
 		return c.Status(200).Send(c.Body())
 	})
 
-	log.Fatal(app.Listen("0.0.0.0:8080"))
+	log.Fatal(q.Listen("0.0.0.0:8080"))
 }

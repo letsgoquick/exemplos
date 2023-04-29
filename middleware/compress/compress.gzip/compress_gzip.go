@@ -9,11 +9,8 @@ import (
 
 // curl -i -H 'Accept-Encoding: gzip' -GET localhost:8080/v1/compress
 func main() {
-
 	q := quick.New()
-
 	q.Use(compress.Gzip())
-
 	q.Get("/v1/compress", func(c *quick.Ctx) error {
 		c.Set("Content-Type", "application/json")
 		c.Set("Accept-Encoding", "gzip")

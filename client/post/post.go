@@ -1,14 +1,64 @@
 package main
 
 import (
+	"context"
 	"io"
 	"log"
+	"net/http"
 	"strings"
 
 	"github.com/jeffotoni/quick/httpclient"
 )
 
 func main() {
-	resp := httpclient.Post("http://localhost:8000/post", io.NopCloser(strings.NewReader(`{"data": "client quick!"}`)))
-	log.Printf("response: %s", resp.Body)
+	// callLocally()
+	// callLetsGoQuick()
+	// callGoDev()
+	callWithCustomClient()
+}
+
+func callLocally() {
+	resp, err := httpclient.Post("http://localhost:8000/post", io.NopCloser(strings.NewReader(`{"data": "client quick!"}`)))
+	if err != nil {
+		log.Printf("error: %v", err)
+	}
+	log.Printf("response: %s | statusCode: %d", resp.Body, resp.StatusCode)
+}
+
+func callLetsGoQuick() {
+	resp, err := httpclient.Post("https://letsgoquick.com", io.NopCloser(strings.NewReader(`{"data": "client quick!"}`)))
+	if err != nil {
+		log.Printf("error: %v", err)
+	}
+	log.Printf("response: %s | statusCode: %d", resp.Body, resp.StatusCode)
+}
+
+func callGoDev() {
+	resp, err := httpclient.Post("https://go.dev", io.NopCloser(strings.NewReader(`{"data": "client quick!"}`)))
+	if err != nil {
+		log.Printf("error: %v", err)
+	}
+	log.Printf("response: %s | statusCode: %d", resp.Body, resp.StatusCode)
+}
+
+func callWithCustomClient() {
+	c := httpclient.Client{
+		Ctx: context.Background(),
+		Headers: map[string]string{
+			"Content-Type": "application/json",
+		},
+		ClientHttp: &http.Client{
+			Transport: &http.Transport{
+				MaxIdleConns:    10,
+				MaxConnsPerHost: 10,
+			},
+			Timeout: 0,
+		},
+	}
+
+	resp, err := c.Post("http://localhost:8000/post", io.NopCloser(strings.NewReader(`{"data": "client quick!"}`)))
+	if err != nil {
+		log.Printf("error: %v", err)
+	}
+	log.Printf("response: %s | statusCode: %d", resp.Body, resp.StatusCode)
 }

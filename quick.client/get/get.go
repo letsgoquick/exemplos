@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jeffotoni/quick/httpclient"
+	"github.com/jeffotoni/quick/http/client"
 )
 
 func main() {
@@ -15,7 +15,9 @@ func main() {
 }
 
 func callLocally() {
-	resp, err := httpclient.Get("http://localhost:8000/get")
+
+	// headers
+	resp, err := client.Get("http://localhost:8000/get")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}

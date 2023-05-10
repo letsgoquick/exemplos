@@ -13,9 +13,9 @@ import (
 )
 
 func main() {
-	// callLocally()
+	callLocally()
 	// callLocally2()
-	callLocally3()
+	// callLocally3()
 	// callLetsGoQuick()
 	// callGoDev()
 	// callWithCustomClient()

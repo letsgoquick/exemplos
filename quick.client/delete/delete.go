@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/jeffotoni/quick/httpclient"
+	"github.com/jeffotoni/quick/http/client"
 )
 
 func main() {
@@ -16,7 +16,7 @@ func main() {
 }
 
 func callLocally() {
-	resp, err := httpclient.Delete("http://localhost:8000/delete")
+	resp, err := client.Delete("http://localhost:8000/delete")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
@@ -24,7 +24,7 @@ func callLocally() {
 }
 
 func callLetsGoQuick() {
-	resp, err := httpclient.Delete("https://letsgoquick.com")
+	resp, err := client.Delete("https://letsgoquick.com")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
@@ -32,7 +32,7 @@ func callLetsGoQuick() {
 }
 
 func callGoDev() {
-	resp, err := httpclient.Delete("https://go.dev")
+	resp, err := client.Delete("https://go.dev")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
@@ -40,7 +40,7 @@ func callGoDev() {
 }
 
 func callWithCustomClient() {
-	c := httpclient.Client{
+	c := client.Client{
 		Ctx: context.Background(),
 		Headers: map[string]string{
 			"Content-Type": "application/json",

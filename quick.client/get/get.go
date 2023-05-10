@@ -25,7 +25,7 @@ func callLocally() {
 }
 
 func callLetsGoQuick() {
-	resp, err := httpclient.Get("https://letsgoquick.com")
+	resp, err := client.Get("https://letsgoquick.com")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
@@ -33,7 +33,7 @@ func callLetsGoQuick() {
 }
 
 func callGoDev() {
-	resp, err := httpclient.Delete("https://go.dev")
+	resp, err := client.Get("https://go.dev")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
@@ -41,7 +41,7 @@ func callGoDev() {
 }
 
 func callWithCustomClient() {
-	c := httpclient.Client{
+	c := client.Client{
 		Ctx: context.Background(),
 		Headers: map[string]string{
 			"Content-Type": "application/json",
@@ -55,7 +55,7 @@ func callWithCustomClient() {
 		},
 	}
 
-	resp, err := c.Delete("http://localhost:8000/get")
+	resp, err := c.Get("http://localhost:8000/get")
 	if err != nil {
 		log.Printf("error: %v", err)
 	}
